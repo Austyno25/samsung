@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <section class="section">
+    <h2 class="section-title">Admin Dashboard</h2>
+
+    <form id="upload-form">
+      <input type="text" placeholder="Name" required />
+      <input type="text" placeholder="Description / Prize" required />
+      <input type="url" placeholder="Image URL" required />
+      <button type="submit" class="button-primary">Upload</button>
+    </form>
+
+    <div id="admin-preview" class="grid" style="margin-top: 2rem;"></div>
+  </section>
+
+  <script>
+    document.getElementById("upload-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const [name, desc, image] = [...this.querySelectorAll("input")].map(i => i.value);
+      document.getElementById("admin-preview").innerHTML += `
+        <div class="card">
+          <img src="${image}" alt="${name}">
+          <div class="card-body">
+            <h3>${name}</h3>
+            <p>${desc}</p>
+          </div>
+        </div>`;
+      this.reset();
+    });
+  </script>
+</body>
+</html>
