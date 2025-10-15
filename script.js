@@ -17,31 +17,37 @@ const products = [
   },
 ];
 
+
 // Sample Winners Data
 const winners = [
   {
-    name: "Andrew Stone",
+    name: "Eva Maurice",
     prize: "$800,000",
-    image: "images/winner1.jpg"
+    image: "images/recent1.jpg"
   },
   {
     name: "John Walker",
     prize: "$800,000",
-    image: "images/winner2.jpg"
+    image: "images/recent2.jpg"
   },
   {
     name: "Sarah Kim",
     prize: "$800,000",
-    image: "images/winner3.jpg"
+    image: "images/recent3.jpg"
   }
 ];
 
-// Inject products
+
 const productGrid = document.getElementById('product-grid');
+const winnersGrid = document.getElementById('winners-grid');
+
+// Inject products
 products.forEach(product => {
   productGrid.innerHTML += `
     <div class="card">
-      <img src="${product.image}" alt="${product.name}">
+      <div class="image-card">
+        <img src="${product.image}" alt="${product.name}">
+      </div>
       <div class="card-body">
         <h3>${product.name}</h3>
         <p>${product.description}</p>
@@ -49,12 +55,12 @@ products.forEach(product => {
     </div>`;
 });
 
-// Inject winners
-const winnersGrid = document.getElementById('winners-grid');
 winners.forEach(winner => {
   winnersGrid.innerHTML += `
     <div class="card">
-      <img src="${winner.image}" alt="${winner.name}">
+      <div class="image-card">
+        <img src="${winner.image}" alt="${winner.name}">
+      </div>
       <div class="card-body">
         <h3>${winner.name}</h3>
         <p>Won: ${winner.prize}</p>
